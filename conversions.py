@@ -5,7 +5,9 @@ def convertCelsiusToKelvin(celsius):
     :param celsius:
     :return:
     """
-    return celsius + 273.15
+    kelvin = celsius + 273.15
+    return kelvin
+
 
 
 def convertCelsiusToFahrenheit(celsius):
@@ -15,9 +17,10 @@ def convertCelsiusToFahrenheit(celsius):
     :param celsius:
     :return:
     """
-    return (celsius * 9/5) + 32 
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
 
-# TODO: add 2 more functions to convert F to C and F to K
+
 
 def convertFahrenheitToCelsius(fahrenheit):
     """
@@ -26,7 +29,10 @@ def convertFahrenheitToCelsius(fahrenheit):
     :param fahrenheit:
     :return:
     """
-    return (fahrenheit - 32) * 5/9
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
+
+
 
 def convertFahrenheitToKelvin(fahrenheit):
     """
@@ -35,7 +41,10 @@ def convertFahrenheitToKelvin(fahrenheit):
     :param fahrenheit:
     :return:
     """
-    return (fahrenheit + 459.67) * 5/9
+    kelvin = (fahrenheit + 459.67) * 5/9
+    return kelvin
+
+
 
 def convertKelvintoFahrenheit(kelvin):
     """
@@ -44,7 +53,9 @@ def convertKelvintoFahrenheit(kelvin):
     :param kelvin:
     :return:
     """
-    return (kelvin * 9/5) - 459.67
+    fahrenheit = (kelvin * 9/5) - 459.67
+    return fahrenheit
+
 
 
 def convertKelvintoCelsius(kelvin):
@@ -54,4 +65,6 @@ def convertKelvintoCelsius(kelvin):
     :param kelvin:
     :return:
     """
-    return kelvin - 273.15
+    celsius = kelvin - 273.15
+    return celsius
+    
