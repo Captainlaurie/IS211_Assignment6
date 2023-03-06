@@ -1,3 +1,5 @@
+import argparse
+
 class ConversionNotPossible(Exception):
     pass
 
@@ -38,52 +40,81 @@ def convert(fromUnit, toUnit, value):
     
     #from Celsius to Kelvin
     if fromUnit.upper() == 'CELSIUS' and toUnit.upper() == 'KELVIN':
-        return value + 273.15
+        convertedValue = value + 273.15
+        return convertedValue
     
     #from Celsius to Fahrenheit
     if fromUnit.upper() == 'CELSIUS' and toUnit.upper() == 'FAHRENHEIT':
-        return (9/5 * value) + 32
+        convertedValue = (9/5 * value) + 32
+        return convertedValue
     
     #From Fahrenheit to Celsius
     if fromUnit.upper() == 'FAHRENHEIT' and toUnit.upper() == 'CELSIUS':
-        return (value - 32) * 5/9
+        convertedValue = (value - 32) * 5/9
+        return convertedValue
+        
     
     #From Fahrenheit to Kelvin
     if fromUnit.upper() == 'FAHRENHEIT' and toUnit.upper() == 'KELVIN':
-        return (value + 459.67) * 5/9
+        convertedValue =  (value + 459.67) * 5/9
+        return convertedValue
     
     #From Kelvin
     if fromUnit.upper() == 'KELVIN' and toUnit.upper() == 'FAHRENHEIT':
-        return (value * 9/5) - 459.67
+        convertedValue = (value * 9/5) - 459.67
+        return convertedValue
     
     
     if fromUnit.upper() == 'KELVIN' and toUnit.upper() == 'CELSIUS':
-        return value - 273.15
+        convertedValue =  value - 273.15
+        return convertedValue
     
     
     #Distance Conversions
     
     #From Yards
     if fromUnit.upper() == 'YARDS' and toUnit.upper() == 'METERS':
-        return value * 0.9144
+        convertedValue =  value * 0.9144
+        return convertedValue
     
     
     if fromUnit.upper() == 'YARDS' and toUnit.upper() == 'MILES':
-        return value / 1760
+        convertedValue =  value / 1760
+        return convertedValue
     
     #From Meters
     if fromUnit.upper() == 'METERS' and toUnit.upper() == 'YARDS':
-        return value * 1.093613
+        convertedValue = value * 1.093613
+        return convertedValue
     
     if fromUnit.upper() == 'METERS' and toUnit.upper() == 'MILES':
-        return value / 1609.344
+        convertedValue = value / 1609.344
+        return convertedValue
     
     #From Miles
     if fromUnit.upper() == 'MILES' and toUnit.upper() == 'YARDS':
-        return value * 1760
+        convertedValue = value * 1760
+        return convertedValue
     
     
     if fromUnit.upper() == 'MILES' and toUnit.upper() == 'METERS':
-        return value * 1609.344
+        convertedValue = value * 1609.344
+        return convertedValue
     
+
+def main():
+    #Parse command line arguments
+    parser = argparse.ArgumentParser(description='Convert temperature and distance units')
+    parser.add_argument('fromUnit', type=str, help='Unit to convert from')
+    parser.add_argument('toUnit', type=str, help='Unit to convert to')
+    parser.add_argument('value', type=float, help='Temperature or distance value to convert')
+    args = parser.parse_args()
+
+    #Call the conversion function with the provided arguments
+    result = convert(args.fromUnit, args.toUnit, args.value)
+
+    # Print the result of the conversion
+    print(f"{args.value} {args.fromUnit} is equal to {result} {args.toUnit}")
     
+if __name__ == '__main__':
+    main()
